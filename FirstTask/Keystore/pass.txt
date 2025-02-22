@@ -1,0 +1,2 @@
+keystore: 	QeJ6gC5DAJ6F9iNK
+alias: 		2rNvkwBfx9695MFN
