@@ -6,6 +6,7 @@
         "Unity.XR.ARFoundation",
         "Unity.XR.ARSubsystems",
         "Unity.XR.Interaction.Toolkit",
+        "Unity.XR.CoreUtils",
         "Unity.TextMeshPro",
         "Unity.InputSystem",
         "DOTween.Modules",

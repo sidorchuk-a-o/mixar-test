@@ -592,6 +592,7 @@ GameObject:
   - component: {fileID: 1577809881405985851}
   - component: {fileID: 4823619282961219733}
   - component: {fileID: 6769321366776597923}
+  - component: {fileID: 5751058313469472366}
   - component: {fileID: 2925828652104706118}
   m_Layer: 0
   m_Name: AR Origin
@@ -667,6 +668,24 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_RaycastPrefab: {fileID: 0}
+--- !u!114 &5751058313469472366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3919184820377278916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dea56a9eaadd1c439095de4f9a371cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <trackablesChanged>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SerializedLibrary: {fileID: 0}
+  m_MaxNumberOfMovingImages: 0
+  m_TrackedImagePrefab: {fileID: 8986328500875594450, guid: f3d10b3a0a7eff24ebf11ccadb8f1b59, type: 3}
 --- !u!114 &2925828652104706118
 MonoBehaviour:
   m_ObjectHideFlags: 0
