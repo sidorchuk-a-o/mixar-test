@@ -12,6 +12,8 @@ namespace Game
         {
             var installers = new IInstaller[]
             {
+                new Installer<GameState>(),
+                new EntryPointInstaller<GameService>()
             };
 
             _appScope.Install(installers);
