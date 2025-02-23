@@ -1,4 +1,5 @@
-﻿using UniRx;
+﻿using System.Collections.Generic;
+using UniRx;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
@@ -12,13 +13,21 @@ namespace Game
 
         private readonly ReactiveCollection<GameObject> _cubes = new();
 
+        private readonly List<GameObject> _coins = new();
+        private readonly ReactiveProperty<int> _score = new();
+
         public IReadOnlyReactiveCollection<GameObject> Cubes => _cubes;
+
+        public IReadOnlyList<GameObject> Coins => _coins;
+        public IReadOnlyReactiveProperty<int> Score => _score;
 
         public GameState(GameConfig config, IObjectResolver resolver)
         {
             _config = config;
             _resolver = resolver;
         }
+
+        // == Cube ==
 
         public void CreateCube(Vector3 spawnPoint)
         {
@@ -37,6 +46,37 @@ namespace Game
             _cubes.Remove(cube);
 
             Object.Destroy(cube);
+        }
+
+        // == Coin ==
+
+        public void CreateCoin(Vector3 spawnPoint)
+        {
+            if (_coins.Count >= _config.MaxCoinCount)
+            {
+                return;
+            }
+
+            var coin = Object.Instantiate(
+                original: _config.CoinPrefab,
+                position: spawnPoint,
+                rotation: Quaternion.identity);
+
+            _resolver.InjectGameObject(coin);
+
+            _coins.Add(coin);
+        }
+
+        public void DestroyCoin(GameObject coin)
+        {
+            _coins.Remove(coin);
+
+            Object.Destroy(coin);
+        }
+
+        public void IncreaseScore()
+        {
+            _score.Value++;
         }
     }
 }

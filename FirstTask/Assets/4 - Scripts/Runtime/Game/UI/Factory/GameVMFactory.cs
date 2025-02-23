@@ -13,5 +13,10 @@
         {
             return new CubesVM(_gameState);
         }
+
+        public ScoreVM GetScore()
+        {
+            return new ScoreVM(_gameState);
+        }
     }
 }

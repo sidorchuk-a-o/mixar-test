@@ -6,6 +6,8 @@ using UnityEngine.XR.ARSubsystems;
 using UnityEngine.XR.Interaction.Toolkit.Interactors;
 using VContainer;
 using VContainer.Unity;
+using AD.ToolsCollection;
+using UnityEngine;
 
 namespace Game
 {
@@ -41,6 +43,7 @@ namespace Game
         void ITickable.Tick()
         {
             TrySpawnCube();
+            TrySpawnCoin();
         }
 
         private void TrySpawnCube()
@@ -65,6 +68,29 @@ namespace Game
             }
 
             _state.CreateCube(arHit.pose.position);
+        }
+
+        private void TrySpawnCoin()
+        {
+            if (_state.Cubes.Count == 0 ||
+                _state.Coins.Count >= _config.MaxCoinCount)
+            {
+                return;
+            }
+
+            var targetCube = _state.Cubes.RandomValue();
+
+            var targetPosition = targetCube.transform.position;
+            var randomDirection = Random.insideUnitCircle;
+
+            var spawnPoint = new Vector3
+            {
+                x = Mathf.Clamp(targetPosition.x + randomDirection.x, -0.75f, 0.75f),
+                y = targetPosition.y,
+                z = Mathf.Clamp(targetPosition.z + randomDirection.y, -0.75f, 0.75f)
+            };
+
+            _state.CreateCoin(spawnPoint);
         }
 
         // == Trackables ==
