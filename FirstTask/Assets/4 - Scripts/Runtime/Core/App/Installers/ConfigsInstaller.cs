@@ -2,7 +2,7 @@
 using VContainer;
 using VContainer.Unity;
 
-namespace Game
+namespace AD.Core
 {
     public class ConfigsInstaller : MonoBehaviour, IInstaller
     {

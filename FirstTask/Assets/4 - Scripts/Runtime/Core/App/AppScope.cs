@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
-using VContainer;
 using VContainer.Unity;
 
-namespace Game
+namespace AD.Core
 {
     public class AppScope : LifetimeScope
     {
@@ -18,21 +17,6 @@ namespace Game
             {
                 Build();
             }
-        }
-
-        public T Resolve<T>()
-        {
-            return Container.ResolveOrDefault<T>();
-        }
-
-        public void Inject(object instance)
-        {
-            Container.Inject(instance);
-        }
-
-        public void InjectGameObject(GameObject gameObject)
-        {
-            Container.InjectGameObject(gameObject);
         }
     }
 }

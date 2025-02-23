@@ -11,12 +11,12 @@ namespace Game.Input
     {
         [SerializeField] private InputButton[] _inputButtons;
 
-        private IInputService inputService;
+        private IInputService _inputService;
 
         [Inject]
         public void Inject(IInputService inputService)
         {
-            this.inputService = inputService;
+            _inputService = inputService;
 
             foreach (var inputButton in _inputButtons)
             {
@@ -32,7 +32,7 @@ namespace Game.Input
                 seed: Vector3.zero,
                 func: (r, n) => r += n.Value.Value);
 
-            inputService.SetMoveDirection(moveDirection.normalized);
+            _inputService.SetMoveDirection(moveDirection.normalized);
         }
     }
 }

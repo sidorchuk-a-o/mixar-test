@@ -2,6 +2,7 @@
     "name": "Core",
     "rootNamespace": "",
     "references": [
+        "VContainer",
         "UniRx",
         "UniTask"
     ],
