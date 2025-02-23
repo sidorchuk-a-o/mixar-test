@@ -20,7 +20,7 @@ namespace Game
 
         private void Update()
         {
-            if (!_interactable.isSelected && !_interactable.isHovered)
+            if (!_interactable.isSelected)
             {
                 _destroyTimer = 0;
                 return;

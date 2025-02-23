@@ -13,9 +13,9 @@ namespace Game
             _gameState = gameState;
         }
 
-        private void OnTriggerEnter(Collider other)
+        private void OnCollisionEnter(Collision collision)
         {
-            if (other.gameObject.CompareTag("Player"))
+            if (collision.gameObject.CompareTag("Player"))
             {
                 _gameState.DestroyCoin(gameObject);
             }

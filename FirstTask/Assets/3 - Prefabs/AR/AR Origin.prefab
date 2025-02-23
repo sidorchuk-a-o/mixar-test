@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8065364141638373223}
   - component: {fileID: 5332570574666344440}
   m_Layer: 0
-  m_Name: Screen Space Ray Interactor
+  m_Name: Ray Interactor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
