@@ -31,18 +31,19 @@ namespace Game
             }
 
             if (!_rayInteractor.logicalSelectState.wasPerformedThisFrame ||
-                !_rayInteractor.TryGetCurrentARRaycastHit(out var arRaycastHit))
+                !_rayInteractor.TryGetCurrentARRaycastHit(out var arHit) ||
+                (_rayInteractor.TryGetCurrent3DRaycastHit(out var hit) && hit.rigidbody != null))
             {
                 return;
             }
 
-            if (arRaycastHit.trackable is not ARPlane plane ||
+            if (arHit.trackable is not ARPlane plane ||
                 plane.alignment != PlaneAlignment.HorizontalUp)
             {
                 return;
             }
 
-            _state.CreateCube(arRaycastHit.pose.position);
+            _state.CreateCube(arHit.pose.position);
         }
     }
 }
