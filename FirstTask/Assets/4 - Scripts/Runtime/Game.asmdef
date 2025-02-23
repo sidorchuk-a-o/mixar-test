@@ -2,6 +2,7 @@
     "name": "Game",
     "rootNamespace": "Game",
     "references": [
+        "Core",
         "Unity.XR.ARFoundation",
         "Unity.XR.ARSubsystems",
         "Unity.XR.Interaction.Toolkit",
@@ -11,7 +12,6 @@
         "VContainer",
         "UniRx",
         "UniTask",
-        "UniTask.Addressables",
         "UniTask.DOTween",
         "UniTask.TextMeshPro"
     ],

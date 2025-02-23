@@ -1,3 +1,4 @@
+using Game.Input;
 using UnityEngine;
 using VContainer.Unity;
 
@@ -13,7 +14,10 @@ namespace Game
             var installers = new IInstaller[]
             {
                 new Installer<GameState>(),
-                new EntryPointInstaller<GameService>()
+                new EntryPointInstaller<GameService>(),
+                new Installer<GameVMFactory>(),
+
+                new Installer<InputService>()
             };
 
             _appScope.Install(installers);

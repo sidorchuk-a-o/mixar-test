@@ -1,4 +1,5 @@
-﻿using UnityEngine.XR.ARFoundation;
+﻿using UnityEngine.EventSystems;
+using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 using UnityEngine.XR.Interaction.Toolkit.Interactors;
 using VContainer.Unity;
@@ -23,20 +24,25 @@ namespace Game
 
         private void TrySpawnCube()
         {
-            if (!_rayInteractor.logicalSelectState.wasPerformedThisFrame ||
-                !_rayInteractor.TryGetCurrentARRaycastHit(out var hit) ||
-                _rayInteractor.TryGetCurrent3DRaycastHit(out _))
+            if (EventSystem.current != null &&
+                EventSystem.current.IsPointerOverGameObject(-1))
             {
                 return;
             }
 
-            if (hit.trackable is not ARPlane plane ||
+            if (!_rayInteractor.logicalSelectState.wasPerformedThisFrame ||
+                !_rayInteractor.TryGetCurrentARRaycastHit(out var arRaycastHit))
+            {
+                return;
+            }
+
+            if (arRaycastHit.trackable is not ARPlane plane ||
                 plane.alignment != PlaneAlignment.HorizontalUp)
             {
                 return;
             }
 
-            _state.CreateCube(hit.pose.position);
+            _state.CreateCube(arRaycastHit.pose.position);
         }
     }
 }
