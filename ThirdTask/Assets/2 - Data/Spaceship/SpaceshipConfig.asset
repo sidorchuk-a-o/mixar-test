@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 056e43fab0417d047ac7089eaaff5410, type: 3}
+  m_Name: SpaceshipConfig
+  m_EditorClassIdentifier: 
+  spaceships:
+  - id: 1
+    title: "\u0410"
+    health:
+      value: 100
+    shield:
+      value: 80
+      recoverySpeed: 1
+    weapons:
+      slotCount: 2
+    modules:
+      slotCount: 2
+    spaceshipPrefab: {fileID: 2640858194711771729, guid: a0d54a0a1d9b339469e40d1840d491db, type: 3}
+  - id: 2
+    title: "\u0411"
+    health:
+      value: 60
+    shield:
+      value: 120
+      recoverySpeed: 1
+    weapons:
+      slotCount: 2
+    modules:
+      slotCount: 3
+    spaceshipPrefab: {fileID: 5680212195413233824, guid: b17882d066aba394dac85746d25eadfd, type: 3}
+  weapons:
+  - id: 1
+    title: "\u041F\u0443\u0448\u043A\u0430 \u0410"
+    damage: 5
+    recharge: 3
+    projectilePrefab: {fileID: 4790735262165378972, guid: a0f0cb8728a399f418ed0f12afb021b3, type: 3}
+  - id: 2
+    title: "\u041F\u0443\u0448\u043A\u0430 \u0411"
+    damage: 4
+    recharge: 2
+    projectilePrefab: {fileID: 4790735262165378972, guid: 5388475b59154ac4581e3d57c7bafcfb, type: 3}
+  - id: 3
+    title: "\u041F\u0443\u0448\u043A\u0430 \u0421"
+    damage: 20
+    recharge: 5
+    projectilePrefab: {fileID: 4790735262165378972, guid: cc5f2f6e2121d7443bc7a627f8eb98c5, type: 3}
+  modules:
+  - {fileID: 11400000, guid: e1131e6abdeb7a447b1740d2f0d99812, type: 2}
+  - {fileID: 11400000, guid: d64c9a6a11312d64fbd2278868897b9a, type: 2}
+  - {fileID: 11400000, guid: 38ea9523b40b66741aeaf2d05bbce78d, type: 2}
+  - {fileID: 11400000, guid: 1a8ec1beeb10202418d02b838269cac1, type: 2}
