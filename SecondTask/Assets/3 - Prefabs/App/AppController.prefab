@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9c2db2a8e1ac8848aae33a2fec3f474, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _appScope: {fileID: 5633025654098998517}
+  appScope: {fileID: 5633025654098998517}
 --- !u!1 &7345948274754824418
 GameObject:
   m_ObjectHideFlags: 0
@@ -110,7 +110,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e654eb2228ee1a348b19c9d41d50f462, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _configs: []
+  _configs:
+  - {fileID: 11400000, guid: c661dac940802be4cb293e99b22b6cda, type: 2}
 --- !u!114 &6476625295290675853
 MonoBehaviour:
   m_ObjectHideFlags: 0
