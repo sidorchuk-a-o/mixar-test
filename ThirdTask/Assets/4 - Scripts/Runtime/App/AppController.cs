@@ -7,7 +7,7 @@ namespace Game
     public class AppController : MonoBehaviour
     {
         [Header("Scope")]
-        [SerializeField] private AppScope _appScope;
+        [SerializeField] private AppScope appScope;
 
         private void Start()
         {
@@ -15,7 +15,7 @@ namespace Game
             {
             };
 
-            _appScope.Install(installers);
+            appScope.Install(installers);
         }
     }
 }
