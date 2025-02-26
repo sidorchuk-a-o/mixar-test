@@ -45,5 +45,15 @@ namespace Game.Spaceships
             WeaponSlotsVM.ForEach(x => x.AddTo(this));
             ModuleSlotsVM.ForEach(x => x.AddTo(this));
         }
+
+        public SpaceshipEM GetEditModel()
+        {
+            return new SpaceshipEM
+            {
+                SpaceshipId = Id,
+                WeaponSlotsEM = WeaponSlotsVM.Select(x => x.GetEditModel()).ToArray(),
+                ModuleSlotsEM = ModuleSlotsVM.Select(x => x.GetEditModel()).ToArray()
+            };
+        }
     }
 }

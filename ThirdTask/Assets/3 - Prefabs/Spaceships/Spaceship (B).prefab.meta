@@ -1,14 +1,7 @@
 fileFormatVersion: 2
-guid: b17882d066aba394dac85746d25eadfd
+guid: fc9f21d76ee06b148a11bb2cef3c1475
 PrefabImporter:
   externalObjects: {}
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 73167
-  packageName: Star Sparrow Modular Spaceship
-  packageVersion: 4.1
-  assetPath: Assets/StarSparrow/Prefabs/Examples/StarSparrow10.prefab
-  uploadId: 697583

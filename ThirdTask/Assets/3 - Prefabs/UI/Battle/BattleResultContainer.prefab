@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7406586892330845249}
   - component: {fileID: 1513398415921417905}
+  - component: {fileID: 7030827572173476918}
   m_Layer: 5
   m_Name: BattleResultContainer
   m_TagString: Untagged
@@ -49,6 +50,18 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &7030827572173476918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1646664662298224832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d76f5fd284ad724bb0c216a6b3460fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6696983791034204987
 GameObject:
   m_ObjectHideFlags: 0

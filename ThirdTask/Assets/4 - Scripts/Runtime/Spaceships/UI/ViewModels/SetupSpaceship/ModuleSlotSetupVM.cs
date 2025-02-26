@@ -17,5 +17,13 @@ namespace Game.Spaceships
         {
             value.Value = moduleId;
         }
+
+        public ModuleSlotEM GetEditModel()
+        {
+            return new ModuleSlotEM
+            {
+                ModuleId = value.Value
+            };
+        }
     }
 }

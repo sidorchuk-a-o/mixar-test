@@ -28,6 +28,8 @@ namespace Game.Spaceships
         public void Init(ModuleSlotSetupVM slotVM, CompositeDisp disp)
         {
             this.slotVM = slotVM;
+
+            moduleDropdown.value = 0;
         }
 
         private void ModuleChangedCallback(int index)

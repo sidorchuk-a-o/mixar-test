@@ -2,6 +2,7 @@
     "name": "Core",
     "rootNamespace": "",
     "references": [
+        "DOTween.Modules",
         "Unity.TextMeshPro",
         "VContainer",
         "UniRx",

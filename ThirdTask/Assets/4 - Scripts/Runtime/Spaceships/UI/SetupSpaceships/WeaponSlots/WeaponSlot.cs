@@ -28,6 +28,8 @@ namespace Game.Spaceships
         public void Init(WeaponSlotSetupVM slotVM, CompositeDisp disp)
         {
             this.slotVM = slotVM;
+
+            weaponDropdown.value = 0;
         }
 
         private void WeaponChangedCallback(int index)

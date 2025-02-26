@@ -9,9 +9,14 @@ namespace AD.Services.Router
     {
         protected readonly CompositeDisp disp = new();
 
-        private void Awake()
+        protected virtual void OnEnable()
         {
             disp.AddTo(this);
+        }
+
+        protected virtual void OnDisable()
+        {
+            disp.Clear();
         }
 
         private void OnDestroy()

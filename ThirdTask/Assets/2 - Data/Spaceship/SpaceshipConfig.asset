@@ -25,7 +25,7 @@ MonoBehaviour:
     modules:
       slotCount: 2
     spaceshipPreview: {fileID: 21300000, guid: f61447f3bc753d8419b6b7176dd1cdef, type: 3}
-    spaceshipPrefab: {fileID: 2640858194711771729, guid: a0d54a0a1d9b339469e40d1840d491db, type: 3}
+    spaceshipPrefab: {fileID: 7434617045664046371, guid: 502e3ecb5a957854f814c095cd5a14ea, type: 3}
   - id: 2
     title: "\u041C\u043E\u0434\u0435\u043B\u044C \u0411"
     health:
@@ -38,7 +38,7 @@ MonoBehaviour:
     modules:
       slotCount: 3
     spaceshipPreview: {fileID: 21300000, guid: 3ae7712aafe5ec9488e48700d323faa8, type: 3}
-    spaceshipPrefab: {fileID: 5680212195413233824, guid: b17882d066aba394dac85746d25eadfd, type: 3}
+    spaceshipPrefab: {fileID: 3400313498370398046, guid: fc9f21d76ee06b148a11bb2cef3c1475, type: 3}
   weapons:
   - id: 1
     title: "\u041F\u0443\u0448\u043A\u0430 \u0410"

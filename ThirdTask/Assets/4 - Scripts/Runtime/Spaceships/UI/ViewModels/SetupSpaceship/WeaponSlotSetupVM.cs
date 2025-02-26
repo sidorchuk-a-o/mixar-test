@@ -17,5 +17,13 @@ namespace Game.Spaceships
         {
             value.Value = weaponId;
         }
+
+        public WeaponSlotEM GetEditModel()
+        {
+            return new WeaponSlotEM
+            {
+                WeaponId = value.Value
+            };
+        }
     }
 }
