@@ -13,7 +13,7 @@ namespace Game.Spaceships
 
         public override string GetDesc()
         {
-            var sign = value > 0 ? "+" : "-";
+            var sign = value > 0 ? "+" : "";
             var percent = Mathf.RoundToInt(value * 100);
 
             return string.Format(desc, sign, percent);

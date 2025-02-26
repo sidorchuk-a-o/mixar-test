@@ -1,4 +1,5 @@
 using AD.Core;
+using Game.Spaceships;
 using UnityEngine;
 using VContainer.Unity;
 
@@ -13,6 +14,7 @@ namespace Game
         {
             var installers = new IInstaller[]
             {
+                new Installer<SpaceshipsVMFactory>()
             };
 
             appScope.Install(installers);

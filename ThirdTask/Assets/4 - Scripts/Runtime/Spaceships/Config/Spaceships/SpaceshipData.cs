@@ -22,7 +22,10 @@ namespace Game.Spaceships
         [BoxGroup("Modules"), HideLabel]
         [SerializeField] private ModulesData modules;
 
-        [BoxGroup("Spaceship (Prefab)"), HideLabel]
+        [BoxGroup("Spaceship (View)")]
+        [SerializeField] private Sprite spaceshipPreview;
+
+        [BoxGroup("Spaceship (View)"), HideLabel]
         [PreviewField(150, ObjectFieldAlignment.Left)]
         [SerializeField] private GameObject spaceshipPrefab;
 
@@ -35,5 +38,6 @@ namespace Game.Spaceships
         public ModulesData Modules => modules;
 
         public GameObject SpaceshipPrefab => spaceshipPrefab;
+        public Sprite SpaceshipPreview => spaceshipPreview;
     }
 }

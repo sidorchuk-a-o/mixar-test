@@ -9,6 +9,7 @@ namespace Game.Spaceships
     {
         [SerializeField] private int id;
         [SerializeField] private string title;
+        [SerializeField] private string desc;
 
         [BoxGroup("Params")]
         [SerializeField] private int damage;
@@ -27,5 +28,10 @@ namespace Game.Spaceships
         public int Recharge => recharge;
 
         public GameObject ProjectilePrefab => projectilePrefab;
+
+        public string GetDesc()
+        {
+            return string.Format(desc, damage, recharge);
+        }
     }
 }

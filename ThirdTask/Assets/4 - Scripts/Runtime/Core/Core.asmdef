@@ -2,6 +2,7 @@
     "name": "Core",
     "rootNamespace": "",
     "references": [
+        "Unity.TextMeshPro",
         "VContainer",
         "UniRx",
         "UniTask"
