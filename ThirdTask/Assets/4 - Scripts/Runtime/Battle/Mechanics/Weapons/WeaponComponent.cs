@@ -44,6 +44,7 @@ namespace Game.Battle
         public void SetRechargeMod(float value)
         {
             rechargeTime = data.RechargeTime + data.RechargeTime * value;
+            rechargeTimer = rechargeTime;
         }
 
         public void TryShoot(Vector3 targetPosition)

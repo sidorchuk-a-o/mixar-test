@@ -19,14 +19,14 @@ namespace Game.Battle
 
         private void ApplyModule(AddHealthModule module, SpaceshipComponent spaceship)
         {
-            var health = spaceship.Health;
+            var health = spaceship.Actor.Health;
 
             health.SetMaxValue(health.MaxValue + module.Value);
         }
 
         private void ApplyModule(AddShieldModule module, SpaceshipComponent spaceship)
         {
-            var shield = spaceship.Shield;
+            var shield = spaceship.Actor.Shield;
 
             shield.SetMaxValue(shield.MaxValue + module.Value);
         }
@@ -43,7 +43,7 @@ namespace Game.Battle
 
         private void ApplyModule(ShieldRecoveryBoostModule module, SpaceshipComponent spaceship)
         {
-            var shield = spaceship.Shield;
+            var shield = spaceship.Actor.Shield;
 
             shield.SetRecoveryMod(module.Value);
         }

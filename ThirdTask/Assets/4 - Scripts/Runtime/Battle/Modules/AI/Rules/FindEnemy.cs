@@ -1,4 +1,6 @@
-﻿namespace Game.Battle
+﻿using System.Linq;
+
+namespace Game.Battle
 {
     public class FindEnemy : IRule
     {
@@ -19,9 +21,14 @@
 
         public void Execute()
         {
-            var enemy = battleState.GetEnemy(spaceship);
+            var enemy = GetEnemy(spaceship);
 
             target.SetTarget(enemy);
+        }
+
+        public SpaceshipComponent GetEnemy(SpaceshipComponent spaceship)
+        {
+            return battleState.Spaceships.FirstOrDefault(x => x.Id != spaceship.Id);
         }
     }
 }

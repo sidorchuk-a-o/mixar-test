@@ -31,8 +31,6 @@ namespace Game.Battle
 
         public void StopBattle()
         {
-            // TODO: зафиксировать результаты боя
-
             aiModule.RemoveSpaceshipActors();
             spawnModule.DespawnSpaceships();
         }

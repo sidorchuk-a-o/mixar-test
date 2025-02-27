@@ -29,7 +29,7 @@ namespace Game.Spaceships
         {
             this.slotVM = slotVM;
 
-            moduleDropdown.value = 0;
+            slotVM.SetModule(moduleOptions[moduleDropdown.value]);
         }
 
         private void ModuleChangedCallback(int index)

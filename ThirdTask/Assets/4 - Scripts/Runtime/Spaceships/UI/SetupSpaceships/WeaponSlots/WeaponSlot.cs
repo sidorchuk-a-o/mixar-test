@@ -29,7 +29,7 @@ namespace Game.Spaceships
         {
             this.slotVM = slotVM;
 
-            weaponDropdown.value = 0;
+            slotVM.SetWeapon(weaponOptions[weaponDropdown.value]);
         }
 
         private void WeaponChangedCallback(int index)

@@ -1,6 +1,10 @@
-﻿using AD.Services.Router;
+﻿using System.Linq;
+using AD.Services.Router;
+using AD.ToolsCollection;
+using Cysharp.Threading.Tasks;
 using Game.Battle;
 using Game.Spaceships;
+using UniRx;
 
 namespace Game
 {
@@ -8,11 +12,16 @@ namespace Game
     {
         private readonly IRouterService router;
         private readonly IBattleService battleService;
+        private readonly IBattleState battleState;
 
-        public GameService(IRouterService router, IBattleService battleService)
+        public GameService(
+            IRouterService router,
+            IBattleService battleService,
+            IBattleState battleState)
         {
             this.router = router;
             this.battleService = battleService;
+            this.battleState = battleState;
         }
 
         public void StartSetupSpaceship()
@@ -25,13 +34,40 @@ namespace Game
             battleService.StartBattle(battleEM);
 
             router.GoTo<BattleContainer>();
+
+            SubscribeToFinishBattle();
         }
 
-        public void StopBattle()
+        private void SubscribeToFinishBattle()
         {
+            foreach (var spaceship in battleState.Spaceships)
+            {
+                spaceship.Actor.Health.IsAlive
+                    .Where(x => x == false)
+                    .Subscribe(StopBattle)
+                    .AddTo(spaceship);
+            }
+        }
+
+        public async void StopBattle()
+        {
+            CreateBattleResult();
+
+            await UniTask.Delay(2000);
+
             battleService.StopBattle();
 
             router.GoTo<BattleResultContainer>();
+        }
+
+        private void CreateBattleResult()
+        {
+            var winner = battleState.Spaceships.FirstOrDefault(x =>
+            {
+                return x.Actor.Health.IsAlive.Value;
+            });
+
+            battleState.SetBattleResult(new BattleResultInfo(winner));
         }
     }
 }

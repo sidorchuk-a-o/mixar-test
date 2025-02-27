@@ -1,13 +1,21 @@
-﻿using Game.Spaceships;
+﻿using AD.ToolsCollection;
+using Game.Spaceships;
+using UniRx;
 using UnityEngine;
 
 namespace Game.Battle
 {
     public class SpaceshipViewComponent : MonoBehaviour
     {
-        public void CreateView(SpaceshipData spaceshipData)
+        private GameObject view;
+
+        public void CreateView(SpaceshipData spaceshipData, SpaceshipComponent spaceship)
         {
-            Instantiate(spaceshipData.SpaceshipPrefab, transform);
+            view = Instantiate(spaceshipData.SpaceshipPrefab, transform);
+
+            spaceship.Actor.Health.IsAlive
+                .Subscribe(x => view.SetActive(x))
+                .AddTo(spaceship);
         }
     }
 }

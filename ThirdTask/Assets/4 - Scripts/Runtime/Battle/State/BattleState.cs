@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 
 namespace Game.Battle
 {
@@ -8,6 +6,7 @@ namespace Game.Battle
     {
         private readonly List<SpaceshipComponent> spaceships = new();
 
+        public BattleResultInfo LastBattleResult { get; private set; }
         public IReadOnlyList<SpaceshipComponent> Spaceships => spaceships;
 
         public void AddSpaceships(IEnumerable<SpaceshipComponent> values)
@@ -20,9 +19,9 @@ namespace Game.Battle
             spaceships.Clear();
         }
 
-        public SpaceshipComponent GetEnemy(SpaceshipComponent spaceship)
+        public void SetBattleResult(BattleResultInfo value)
         {
-            return spaceships.FirstOrDefault(x => x.Id != spaceship.Id);
+            LastBattleResult = value;
         }
     }
 }

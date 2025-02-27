@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
+using AD.ToolsCollection;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -45,5 +47,27 @@ namespace Game.Spaceships
 
             return data;
         }
+
+#if UNITY_EDITOR
+        public static IEnumerable Editor_GetSpaceships()
+        {
+            var config = EditorUtils.LoadAsset<SpaceshipsConfig>();
+
+            var values = new ValueDropdownList<int>
+            {
+                { "None", 0 }
+            };
+
+            if (config != null)
+            {
+                foreach (var spaceship in config.Spaceships)
+                {
+                    values.Add(spaceship.Title, spaceship.Id);
+                }
+            }
+
+            return values;
+        }
+#endif
     }
 }

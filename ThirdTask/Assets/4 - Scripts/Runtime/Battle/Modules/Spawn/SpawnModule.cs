@@ -40,7 +40,7 @@ namespace Game.Battle
         private SpaceshipComponent SpawnAndSetupSpaceship(SpaceshipEM spaceshipEM, int index)
         {
             var spaceshipData = spaceshipsConfig.GetSpaceship(spaceshipEM.SpaceshipId);
-            var spaceship = SpawnSpaceship(index, spaceshipData);
+            var spaceship = SpawnSpaceship(spaceshipData);
 
             SetupSpaceship(spaceship, spaceshipData, spaceshipEM);
 
@@ -49,12 +49,12 @@ namespace Game.Battle
             return spaceship;
         }
 
-        private SpaceshipComponent SpawnSpaceship(int index, SpaceshipData spaceshipData)
+        private SpaceshipComponent SpawnSpaceship(SpaceshipData spaceshipData)
         {
-            var spawnPoint = spawnPoints[index].transform;
+            var spawnPoint = spawnPoints.First(x => x.SpacehipId == spaceshipData.Id);
             var spaceshipPrefab = battleConfig.SpaceshipPrefab;
 
-            return Instantiate(spaceshipPrefab, spawnPoint);
+            return Instantiate(spaceshipPrefab, spawnPoint.transform);
         }
 
         private void SetupSpaceship(SpaceshipComponent spaceship, SpaceshipData spaceshipData, SpaceshipEM spaceshipEM)
@@ -64,7 +64,7 @@ namespace Game.Battle
             // view
             var view = spaceship.GetComponent<SpaceshipViewComponent>();
 
-            view.CreateView(spaceshipData);
+            view.CreateView(spaceshipData, spaceship);
 
             // slots
             var weaponSlots = spaceship.GetComponentInChildren<WeaponSlotsComponent>();

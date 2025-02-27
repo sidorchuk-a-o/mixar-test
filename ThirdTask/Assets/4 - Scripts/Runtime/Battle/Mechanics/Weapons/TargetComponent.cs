@@ -11,7 +11,7 @@ namespace Game.Battle
             get
             {
                 return Value != null
-                    && Value.Health.IsAlive.Value;
+                    && Value.Actor.Health.IsAlive.Value;
             }
         }
 

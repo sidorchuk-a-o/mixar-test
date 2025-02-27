@@ -54,13 +54,16 @@ namespace AD.Services.Router
 
                 if (force)
                 {
-                    canvasGroup
-                        .DOFade(endValue, duration)
-                        .OnComplete(() => container.gameObject.SetActive(state));
+                    canvasGroup.alpha = endValue;
                 }
                 else
                 {
-                    canvasGroup.alpha = endValue;
+                    canvasGroup
+                        .DOFade(endValue, duration)
+                        .OnComplete(() =>
+                        {
+                            container.gameObject.SetActive(state);
+                        });
                 }
             }
         }

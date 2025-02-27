@@ -7,6 +7,7 @@ namespace Game.Battle
     public class ShieldComponent : MonoBehaviour
     {
         private ShieldData data;
+        private HealthComponent health;
 
         private float recoveryTime;
         private float recoveryValue;
@@ -15,6 +16,7 @@ namespace Game.Battle
 
         public int MaxValue { get; private set; }
         public IReadOnlyReactiveProperty<float> Value => currentValue;
+        public IReadOnlyReactiveProperty<bool> IsActive { get; private set; }
 
         public void Init(ShieldData data)
         {
@@ -22,6 +24,16 @@ namespace Game.Battle
 
             SetMaxValue(data.Value);
             SetRecoveryMod(0);
+
+            health = GetComponent<HealthComponent>();
+            IsActive = Value.Select(x => x > 0).ToReadOnlyReactiveProperty();
+        }
+
+        public void AddValue(float value)
+        {
+            var newValue = currentValue.Value + value;
+
+            currentValue.Value = Mathf.Clamp(newValue, 0f, MaxValue);
         }
 
         public void SetMaxValue(int value)
@@ -35,14 +47,9 @@ namespace Game.Battle
             recoveryValue = data.RecoverySpeed + data.RecoverySpeed * value;
         }
 
-        public void ReceiveDamage(float damage)
-        {
-            currentValue.Value = Mathf.Max(0f, currentValue.Value - damage);
-        }
-
         private void Update()
         {
-            if (currentValue.Value >= MaxValue)
+            if (currentValue.Value >= MaxValue || !health.IsAlive.Value)
             {
                 return;
             }

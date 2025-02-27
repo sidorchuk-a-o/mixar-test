@@ -19,15 +19,17 @@ namespace Game.Battle
             IsAlive = Value.Select(x => x > 0).ToReadOnlyReactiveProperty();
         }
 
+        public void AddValue(float value)
+        {
+            var newValue = currentValue.Value + value;
+
+            currentValue.Value = Mathf.Clamp(newValue, 0f, MaxValue);
+        }
+
         public void SetMaxValue(int value)
         {
             MaxValue = value;
             currentValue.Value = value;
-        }
-
-        public void ReceiveDamage(float damage)
-        {
-            currentValue.Value = Mathf.Max(0f, currentValue.Value - damage);
         }
     }
 }

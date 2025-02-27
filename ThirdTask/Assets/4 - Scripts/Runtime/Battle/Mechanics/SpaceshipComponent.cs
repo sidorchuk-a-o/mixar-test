@@ -7,20 +7,15 @@ namespace Game.Battle
     {
         public int Id { get; private set; }
         public string Title { get; private set; }
-
-        public HealthComponent Health { get; private set; }
-        public ShieldComponent Shield { get; private set; }
+        public ActorComponent Actor { get; private set; }
 
         public void Init(SpaceshipData spaceshipData)
         {
             Id = spaceshipData.Id;
             Title = spaceshipData.Title;
 
-            Health = GetComponentInChildren<HealthComponent>();
-            Health.Init(spaceshipData.Health);
-
-            Shield = GetComponentInChildren<ShieldComponent>();
-            Shield.Init(spaceshipData.Shield);
+            Actor = GetComponent<ActorComponent>();
+            Actor.Init(spaceshipData.Health, spaceshipData.Shield);
         }
     }
 }
