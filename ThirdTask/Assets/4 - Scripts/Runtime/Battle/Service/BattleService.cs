@@ -1,4 +1,5 @@
 ﻿using Game.Spaceships;
+using VContainer;
 
 namespace Game.Battle
 {
@@ -7,12 +8,18 @@ namespace Game.Battle
         private readonly SpawnModule spawnModule;
         private readonly AIModule aiModule;
 
+        private readonly WeaponsManager weaponsManager;
+
         public BattleService(
             BattleConfig battleConfig,
             SpaceshipsConfig spaceshipsConfig,
-            BattleState battleState)
+            BattleState battleState,
+            WeaponsManager weaponsManager,
+            IObjectResolver resolver)
         {
-            spawnModule = new SpawnModule(battleConfig, spaceshipsConfig, battleState);
+            this.weaponsManager = weaponsManager;
+
+            spawnModule = new SpawnModule(battleConfig, spaceshipsConfig, battleState, resolver);
             aiModule = new AIModule(battleState);
         }
 
@@ -33,6 +40,7 @@ namespace Game.Battle
         public void Tick()
         {
             aiModule.Update();
+            weaponsManager.Update();
         }
     }
 }

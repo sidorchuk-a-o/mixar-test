@@ -1,6 +1,8 @@
 ﻿using System.Linq;
 using Game.Spaceships;
 using UnityEngine;
+using VContainer;
+using VContainer.Unity;
 using static UnityEngine.Object;
 
 namespace Game.Battle
@@ -10,17 +12,20 @@ namespace Game.Battle
         private readonly BattleConfig battleConfig;
         private readonly SpaceshipsConfig spaceshipsConfig;
         private readonly BattleState battleState;
+        private readonly IObjectResolver resolver;
 
         private readonly SpawnPoint[] spawnPoints;
 
         public SpawnModule(
             BattleConfig battleConfig,
             SpaceshipsConfig spaceshipsConfig,
-            BattleState battleState)
+            BattleState battleState,
+            IObjectResolver resolver)
         {
             this.battleConfig = battleConfig;
             this.spaceshipsConfig = spaceshipsConfig;
             this.battleState = battleState;
+            this.resolver = resolver;
 
             spawnPoints = FindObjectsByType<SpawnPoint>(FindObjectsSortMode.None);
         }
@@ -39,6 +44,8 @@ namespace Game.Battle
 
             SetupSpaceship(spaceship, spaceshipData, spaceshipEM);
 
+            resolver.InjectGameObject(spaceship.gameObject);
+
             return spaceship;
         }
 
@@ -47,20 +54,38 @@ namespace Game.Battle
             var spawnPoint = spawnPoints[index].transform;
             var spaceshipPrefab = battleConfig.SpaceshipPrefab;
 
-            var spaceship = Instantiate(spaceshipPrefab, spawnPoint);
-
-            spaceship.Init(spaceshipData);
-
-            return spaceship;
+            return Instantiate(spaceshipPrefab, spawnPoint);
         }
 
         private void SetupSpaceship(SpaceshipComponent spaceship, SpaceshipData spaceshipData, SpaceshipEM spaceshipEM)
         {
-            // components
+            spaceship.Init(spaceshipData);
+
+            // view
             var view = spaceship.GetComponent<SpaceshipViewComponent>();
 
-            // init
-            view.Init(spaceshipData);
+            view.CreateView(spaceshipData);
+
+            // slots
+            var weaponSlots = spaceship.GetComponentInChildren<WeaponSlotsComponent>();
+            var moduleSlots = spaceship.GetComponentInChildren<ModuleSlotsComponent>();
+
+            weaponSlots.CreateWeapons(GetWeapons(spaceshipEM.WeaponSlotsEM));
+            moduleSlots.CreateModules(GetModules(spaceshipEM.ModuleSlotsEM), spaceship);
+        }
+
+        private WeaponData[] GetWeapons(WeaponSlotEM[] weaponSlotsEM)
+        {
+            return weaponSlotsEM
+                .Select(x => spaceshipsConfig.GetWeapon(x.WeaponId))
+                .ToArray();
+        }
+
+        private ModuleData[] GetModules(ModuleSlotEM[] moduleSlotsEM)
+        {
+            return moduleSlotsEM
+                .Select(x => spaceshipsConfig.GetModules(x.ModuleId))
+                .ToArray();
         }
 
         public void DespawnSpaceships()

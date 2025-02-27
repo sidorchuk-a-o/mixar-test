@@ -19,6 +19,8 @@ namespace Game
                 new Installer<RouterService>(),
                 new Installer<SpaceshipsVMFactory>(),
 
+                new Installer<WeaponsManager>(),
+
                 new Installer<BattleState>(),
                 new Installer<BattleService>(),
                 new Installer<GameService>(),

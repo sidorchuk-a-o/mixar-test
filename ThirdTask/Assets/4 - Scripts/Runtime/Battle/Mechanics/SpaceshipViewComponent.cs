@@ -5,7 +5,7 @@ namespace Game.Battle
 {
     public class SpaceshipViewComponent : MonoBehaviour
     {
-        public void Init(SpaceshipData spaceshipData)
+        public void CreateView(SpaceshipData spaceshipData)
         {
             Instantiate(spaceshipData.SpaceshipPrefab, transform);
         }

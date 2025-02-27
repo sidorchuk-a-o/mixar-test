@@ -45,22 +45,25 @@ MonoBehaviour:
     desc: "\u0423\u0440\u043E\u043D {0}; \u041F\u0435\u0440\u0435\u0437\u0430\u0440\u044F\u0434\u043A\u0430:
       {1}c"
     damage: 5
-    recharge: 3
+    rechargeTime: 3
     projectilePrefab: {fileID: 4790735262165378972, guid: a0f0cb8728a399f418ed0f12afb021b3, type: 3}
+    weaponPrefab: {fileID: 4790735262165378972, guid: 3d8bcc158cb3cec4cbab43dbfad8655c, type: 3}
   - id: 2
     title: "\u041F\u0443\u0448\u043A\u0430 \u0411"
     desc: "\u0423\u0440\u043E\u043D {0}; \u041F\u0435\u0440\u0435\u0437\u0430\u0440\u044F\u0434\u043A\u0430:
       {1}c"
     damage: 4
-    recharge: 2
+    rechargeTime: 2
     projectilePrefab: {fileID: 4790735262165378972, guid: 5388475b59154ac4581e3d57c7bafcfb, type: 3}
+    weaponPrefab: {fileID: 4790735262165378972, guid: 96157640e47ce184587612fc038e3fac, type: 3}
   - id: 3
     title: "\u041F\u0443\u0448\u043A\u0430 \u0421"
     desc: "\u0423\u0440\u043E\u043D {0}; \u041F\u0435\u0440\u0435\u0437\u0430\u0440\u044F\u0434\u043A\u0430:
       {1}c"
     damage: 20
-    recharge: 5
+    rechargeTime: 5
     projectilePrefab: {fileID: 4790735262165378972, guid: cc5f2f6e2121d7443bc7a627f8eb98c5, type: 3}
+    weaponPrefab: {fileID: 4790735262165378972, guid: b2d96c852ba06454194739c7de0486e7, type: 3}
   modules:
   - {fileID: 11400000, guid: e1131e6abdeb7a447b1740d2f0d99812, type: 2}
   - {fileID: 11400000, guid: d64c9a6a11312d64fbd2278868897b9a, type: 2}

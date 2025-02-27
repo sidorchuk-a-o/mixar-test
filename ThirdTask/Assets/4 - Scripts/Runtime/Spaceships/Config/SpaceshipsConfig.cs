@@ -40,7 +40,7 @@ namespace Game.Spaceships
 
         public ModuleData GetModules(int id)
         {
-            modulesCache ??= modules.ToDictionary(x => id, x => x);
+            modulesCache ??= modules.ToDictionary(x => x.Id, x => x);
             modulesCache.TryGetValue(id, out var data);
 
             return data;

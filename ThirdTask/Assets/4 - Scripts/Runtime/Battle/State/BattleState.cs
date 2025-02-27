@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Game.Battle
 {
@@ -16,6 +18,11 @@ namespace Game.Battle
         public void RemoveSpaceships()
         {
             spaceships.Clear();
+        }
+
+        public SpaceshipComponent GetEnemy(SpaceshipComponent spaceship)
+        {
+            return spaceships.FirstOrDefault(x => x.Id != spaceship.Id);
         }
     }
 }

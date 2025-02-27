@@ -15,7 +15,7 @@ namespace Game.Spaceships
             Id = data.Id;
             Title = data.Title;
             Damage = data.Damage;
-            Recharge = data.Recharge;
+            Recharge = data.RechargeTime;
         }
 
         protected override void InitSubscribes()

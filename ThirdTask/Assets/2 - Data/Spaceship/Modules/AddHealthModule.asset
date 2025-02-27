@@ -15,4 +15,5 @@ MonoBehaviour:
   id: 2
   title: "\u041C\u043E\u0434\u0443\u043B\u044C \u0411"
   desc: "{0}{1} \u0436\u0438\u0437\u043D\u0438"
+  modulePrefab: {fileID: 4790735262165378972, guid: 3fed88360cab4884d873a73be2c0a651, type: 3}
   value: 50
