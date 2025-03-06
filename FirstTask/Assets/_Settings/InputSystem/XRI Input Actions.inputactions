@@ -2944,6 +2944,15 @@
                     "initialStateCheck": true
                 },
                 {
+                    "name": "Touch Position",
+                    "type": "Value",
+                    "id": "656847df-c590-4231-bbbc-5a866a1604c7",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
                     "name": "Drag Current Position",
                     "type": "Value",
                     "id": "07fd51be-2a34-4531-939c-ff750fcf8e4d",
@@ -3019,7 +3028,7 @@
                     "name": "Spawn Object",
                     "type": "Button",
                     "id": "1415f3c5-fc5f-4f58-a044-4a69560151f2",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -3067,6 +3076,50 @@
                     "processors": "",
                     "groups": "",
                     "action": "Tap Start Position",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "e8e2dcce-d0c9-4a1e-845a-1e457707a9f6",
+                    "path": "<Pointer>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Touch Position",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "One Modifier",
+                    "id": "ab8803ae-bfb5-4625-88f8-2b5dac067b9e",
+                    "path": "OneModifier",
+                    "interactions": "Tap",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Touch Position",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "c5c01ccd-10b1-4af7-8f6e-c2b6f5a439d4",
+                    "path": "<Mouse>/press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Touch Position",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "75475735-e11d-4df0-a1f5-e6d3235bc396",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Touch Position",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },

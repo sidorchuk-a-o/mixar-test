@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 6400179919888243874}
   - component: {fileID: 2729525972959946608}
   - component: {fileID: 8065364141638373223}
-  - component: {fileID: 5332570574666344440}
+  - component: {fileID: 6356444683670796095}
+  - component: {fileID: 1734848443261727482}
   m_Layer: 0
   m_Name: Ray Interactor
   m_TagString: Untagged
@@ -33,10 +34,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
-  m_Children:
-  - {fileID: 2635955278446639057}
-  - {fileID: 5796448131100883632}
-  - {fileID: 388658924826462540}
+  m_Children: []
   m_Father: {fileID: 9142986221374742596}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4252593374428816246
@@ -97,7 +95,7 @@ MonoBehaviour:
       m_Flags: 0
     m_InputActionReferencePerformed: {fileID: 0}
     m_InputActionReferenceValue: {fileID: 0}
-    m_ObjectReferenceObject: {fileID: 3623050677694651399}
+    m_ObjectReferenceObject: {fileID: 1734848443261727482}
     m_ManualPerformed: 0
     m_ManualValue: 0
     m_ManualQueuePerformed: 0
@@ -289,7 +287,7 @@ MonoBehaviour:
       m_SingletonActionBindings: []
       m_Flags: 0
     m_InputActionReference: {fileID: 0}
-    m_ObjectReferenceObject: {fileID: 3869930776091640664}
+    m_ObjectReferenceObject: {fileID: 0}
     m_ManualValue: {x: 0, y: 0}
   m_DirectionalManipulationInput:
     m_InputSourceMode: 0
@@ -361,7 +359,7 @@ MonoBehaviour:
       m_SingletonActionBindings: []
       m_Flags: 0
     m_InputActionReference: {fileID: 0}
-    m_ObjectReferenceObject: {fileID: 2805611974263504382}
+    m_ObjectReferenceObject: {fileID: 0}
     m_ManualValue: 0
 --- !u!114 &6400179919888243874
 MonoBehaviour:
@@ -418,7 +416,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1aafed8f78cf16469d903184f65d9a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5332570574666344440
+--- !u!114 &6356444683670796095
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -427,17 +425,45 @@ MonoBehaviour:
   m_GameObject: {fileID: 1855607122114826069}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d08dffc5b169f040870b8f1bfe27403, type: 3}
+  m_Script: {fileID: 11500000, guid: ae406676dc4d2b04a8f08a364e15bf73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ControllerCamera: {fileID: 970936918941071099}
-  m_TapStartPositionInput:
+  controllerCamera: {fileID: 970936918941071099}
+  screenTouchCountInput:
+    m_InputSourceMode: 2
+    m_InputAction:
+      m_Name: Screen Touch Count
+      m_Type: 0
+      m_ExpectedControlType: Integer
+      m_Id: 2c037a06-81c9-4510-908c-357b1e09c067
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_InputActionReference: {fileID: 4162966010302970412, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    m_ObjectReferenceObject: {fileID: 0}
+    m_ManualValue: 0
+  touchPositionInput:
+    m_InputSourceMode: 2
+    m_InputAction:
+      m_Name: Touch Position
+      m_Type: 0
+      m_ExpectedControlType: Vector2
+      m_Id: fe9f3cc5-1ea9-4c41-bb8e-fc15c8bb8e02
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_InputActionReference: {fileID: -458959050954999205, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    m_ObjectReferenceObject: {fileID: 0}
+    m_ManualValue: {x: 0, y: 0}
+  tapStartPositionInput:
     m_InputSourceMode: 2
     m_InputAction:
       m_Name: Tap Start Position
       m_Type: 0
       m_ExpectedControlType: Vector2
-      m_Id: 8a2cc121-2dbc-42fe-adaf-622ea2b3d171
+      m_Id: 60bb35f2-d724-4481-a3ce-df7479e84c83
       m_Processors: 
       m_Interactions: 
       m_SingletonActionBindings: []
@@ -445,13 +471,13 @@ MonoBehaviour:
     m_InputActionReference: {fileID: 2494954584338170553, guid: c348712bda248c246b8c49b3db54643f, type: 3}
     m_ObjectReferenceObject: {fileID: 0}
     m_ManualValue: {x: 0, y: 0}
-  m_DragCurrentPositionInput:
+  dragCurrentPositionInput:
     m_InputSourceMode: 2
     m_InputAction:
       m_Name: Drag Current Position
       m_Type: 0
       m_ExpectedControlType: Vector2
-      m_Id: 0c6d1240-4ee9-49af-a967-2247bb090258
+      m_Id: 71fa1920-5112-4144-a48b-83c58f5ccb46
       m_Processors: 
       m_Interactions: 
       m_SingletonActionBindings: []
@@ -459,18 +485,86 @@ MonoBehaviour:
     m_InputActionReference: {fileID: -7530398834462728267, guid: c348712bda248c246b8c49b3db54643f, type: 3}
     m_ObjectReferenceObject: {fileID: 0}
     m_ManualValue: {x: 0, y: 0}
-  m_ScreenTouchCountInput:
+--- !u!114 &1734848443261727482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1855607122114826069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a140c5ca6a08854eb4e2bb0e1e5b5d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  screenTouchCountInput:
     m_InputSourceMode: 2
     m_InputAction:
       m_Name: Screen Touch Count
       m_Type: 0
       m_ExpectedControlType: Integer
-      m_Id: b79acf2d-23bd-4013-83fd-f356516054a2
+      m_Id: 9ea83439-d59b-463e-a26c-680787fc39a9
       m_Processors: 
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
     m_InputActionReference: {fileID: 4162966010302970412, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    m_ObjectReferenceObject: {fileID: 0}
+    m_ManualValue: 0
+  tapStartPositionInput:
+    m_InputSourceMode: 2
+    m_InputAction:
+      m_Name: Tap Start Position
+      m_Type: 0
+      m_ExpectedControlType: Vector2
+      m_Id: 19afe668-7c81-43e7-b01c-b2312c1b8587
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_InputActionReference: {fileID: 2494954584338170553, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    m_ObjectReferenceObject: {fileID: 0}
+    m_ManualValue: {x: 0, y: 0}
+  dragCurrentPositionInput:
+    m_InputSourceMode: 2
+    m_InputAction:
+      m_Name: Drag Current Position
+      m_Type: 0
+      m_ExpectedControlType: Vector2
+      m_Id: 68c6a424-cc2f-437b-9b70-5e1aa6574c60
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_InputActionReference: {fileID: -7530398834462728267, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    m_ObjectReferenceObject: {fileID: 0}
+    m_ManualValue: {x: 0, y: 0}
+  pinchGapDeltaInput:
+    m_InputSourceMode: 2
+    m_InputAction:
+      m_Name: Pinch Gap Delta
+      m_Type: 0
+      m_ExpectedControlType: Axis
+      m_Id: 4074aee8-ae00-4538-8544-8f1b84ffccf6
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_InputActionReference: {fileID: -5112888916153672211, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    m_ObjectReferenceObject: {fileID: 0}
+    m_ManualValue: 0
+  twistDeltaRotationInput:
+    m_InputSourceMode: 2
+    m_InputAction:
+      m_Name: Twist Delta Rotation
+      m_Type: 0
+      m_ExpectedControlType: Axis
+      m_Id: d1e13e4d-4808-4c52-b791-5bbb018a77b2
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_InputActionReference: {fileID: -8156239294363760665, guid: c348712bda248c246b8c49b3db54643f, type: 3}
     m_ObjectReferenceObject: {fileID: 0}
     m_ManualValue: 0
 --- !u!1 &2041285953838387134
@@ -506,80 +600,6 @@ Transform:
   - {fileID: 5157115276102782327}
   m_Father: {fileID: 8304127866946393771}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2779914741597858018
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 388658924826462540}
-  - component: {fileID: 2805611974263504382}
-  m_Layer: 0
-  m_Name: Scale Distance Delta Input
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &388658924826462540
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2779914741597858018}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 1
-  m_Children: []
-  m_Father: {fileID: 5157115276102782327}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2805611974263504382
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2779914741597858018}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14264165a1650b54a9900cc12af9cec1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_UseRotationThreshold: 1
-  m_RotationThreshold: 0.02
-  m_PinchGapDeltaInput:
-    m_InputSourceMode: 2
-    m_InputAction:
-      m_Name: Pinch Gap Delta
-      m_Type: 0
-      m_ExpectedControlType: Axis
-      m_Id: 213e6d0f-f5b5-4479-b35d-564db0a8e1b5
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_InputActionReference: {fileID: -5112888916153672211, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-    m_ObjectReferenceObject: {fileID: 0}
-    m_ManualValue: 0
-  m_TwistDeltaRotationInput:
-    m_InputSourceMode: 2
-    m_InputAction:
-      m_Name: Twist Delta Rotation
-      m_Type: 0
-      m_ExpectedControlType: Axis
-      m_Id: 67b7eada-a58b-48f6-99ab-5cc49843b41a
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_InputActionReference: {fileID: -8156239294363760665, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-    m_ObjectReferenceObject: {fileID: 0}
-    m_ManualValue: 0
 --- !u!1 &3919184820377278916
 GameObject:
   m_ObjectHideFlags: 0
@@ -700,193 +720,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ActionAssets:
   - {fileID: -944628639613478452, guid: c348712bda248c246b8c49b3db54643f, type: 3}
---- !u!1 &4193677086819509057
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2635955278446639057}
-  - component: {fileID: 3623050677694651399}
-  m_Layer: 0
-  m_Name: Select Input
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2635955278446639057
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4193677086819509057}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 1
-  m_Children: []
-  m_Father: {fileID: 5157115276102782327}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3623050677694651399
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4193677086819509057}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f4dc779781245c4fb67485037f7c563, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_TapStartPositionInput:
-    m_InputSourceMode: 2
-    m_InputAction:
-      m_Name: Tap Start Position
-      m_Type: 0
-      m_ExpectedControlType: Vector2
-      m_Id: 61a055a4-3143-4933-811e-5f0e7d0e25a4
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_InputActionReference: {fileID: 2494954584338170553, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-    m_ObjectReferenceObject: {fileID: 0}
-    m_ManualValue: {x: 0, y: 0}
-  m_DragCurrentPositionInput:
-    m_InputSourceMode: 2
-    m_InputAction:
-      m_Name: Drag Current Position
-      m_Type: 0
-      m_ExpectedControlType: Vector2
-      m_Id: de616a0d-b656-42b1-9466-38b70e50155d
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_InputActionReference: {fileID: -7530398834462728267, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-    m_ObjectReferenceObject: {fileID: 0}
-    m_ManualValue: {x: 0, y: 0}
-  m_PinchGapDeltaInput:
-    m_InputSourceMode: 2
-    m_InputAction:
-      m_Name: Pinch Gap Delta
-      m_Type: 0
-      m_ExpectedControlType: Axis
-      m_Id: 0cb90ffe-8281-4c67-b2c6-a01a53915a3c
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_InputActionReference: {fileID: -5112888916153672211, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-    m_ObjectReferenceObject: {fileID: 0}
-    m_ManualValue: 0
-  m_TwistDeltaRotationInput:
-    m_InputSourceMode: 2
-    m_InputAction:
-      m_Name: Twist Delta Rotation
-      m_Type: 0
-      m_ExpectedControlType: Axis
-      m_Id: 128b79a7-92af-4156-8f46-79aca4634514
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_InputActionReference: {fileID: -8156239294363760665, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-    m_ObjectReferenceObject: {fileID: 0}
-    m_ManualValue: 0
---- !u!1 &5041412096595761351
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5796448131100883632}
-  - component: {fileID: 3869930776091640664}
-  m_Layer: 0
-  m_Name: Rotate Input
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5796448131100883632
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5041412096595761351}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 1
-  m_Children: []
-  m_Father: {fileID: 5157115276102782327}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3869930776091640664
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5041412096595761351}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8552f8756b2d288408fd498c09521d36, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_RayInteractor: {fileID: 4252593374428816246}
-  m_TwistDeltaRotationInput:
-    m_InputSourceMode: 2
-    m_InputAction:
-      m_Name: Twist Delta Rotation
-      m_Type: 0
-      m_ExpectedControlType: Axis
-      m_Id: 0d0dc30d-730a-403c-a15e-e569994adae8
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_InputActionReference: {fileID: -8156239294363760665, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-    m_ObjectReferenceObject: {fileID: 0}
-    m_ManualValue: 0
-  m_DragDeltaInput:
-    m_InputSourceMode: 2
-    m_InputAction:
-      m_Name: Drag Delta
-      m_Type: 0
-      m_ExpectedControlType: Vector2
-      m_Id: a14680a7-d542-4505-aef9-4338d6bbd4a1
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_InputActionReference: {fileID: -3603844561257126198, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-    m_ObjectReferenceObject: {fileID: 0}
-    m_ManualValue: {x: 0, y: 0}
-  m_ScreenTouchCountInput:
-    m_InputSourceMode: 2
-    m_InputAction:
-      m_Name: Screen Touch Count
-      m_Type: 0
-      m_ExpectedControlType: Integer
-      m_Id: 1409435d-da38-4a1e-b22a-32002b13df89
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_InputActionReference: {fileID: 4162966010302970412, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-    m_ObjectReferenceObject: {fileID: 0}
-    m_ManualValue: 0
 --- !u!1 &7165799059987250451
 GameObject:
   m_ObjectHideFlags: 0
