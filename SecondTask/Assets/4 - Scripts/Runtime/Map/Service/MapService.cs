@@ -17,16 +17,11 @@ namespace Game.Map
 
         public IReadOnlyList<StationInfo> FindShortPath(int startStationId, int endStationId)
         {
+            var path = new List<StationInfo>();
             var endNodes = ListPool<PathNode>.Get();
-            var startStation = state.GetStation(startStationId);
-
-            var path = new List<StationInfo>
-            {
-                startStation
-            };
 
             // search end nodes
-            FindEndCandidates(startStation, endStationId, endNodes);
+            FindEndCandidates(startStationId, endStationId, endNodes);
 
             // find path
             FindShortPath(path, endNodes);
@@ -42,9 +37,10 @@ namespace Game.Map
         /// <summary>
         /// BFS
         /// </summary>
-        private void FindEndCandidates(StationInfo startStation, int endStationId, List<PathNode> endNodes)
+        private void FindEndCandidates(int startStationId, int endStationId, List<PathNode> endNodes)
         {
             var nodesQueue = new Queue<PathNode>();
+            var startStation = state.GetStation(startStationId);
 
             var startNode = new PathNode
             {
@@ -75,11 +71,13 @@ namespace Game.Map
 
                     nearbyStation.MarkAsChecked();
 
+                    var isStart = nearbyStation.StationId.Id == startStationId;
+
                     var nearbyNode = new PathNode
                     {
                         Station = nearbyStation,
-                        Prev = currentNode,
-                        Weight = currentNode.Weight + 1
+                        Prev = isStart ? null : currentNode,
+                        Weight = isStart ? 0 : currentNode.Weight + 1
                     };
 
                     nodesQueue.Enqueue(nearbyNode);
@@ -95,10 +93,12 @@ namespace Game.Map
 
             while (node.Prev != null)
             {
-                path.Insert(1, node.Station);
+                path.Insert(0, node.Station);
 
                 node = node.Prev;
             }
+
+            path.Insert(0, node.Station);
         }
 
         private class PathNode
