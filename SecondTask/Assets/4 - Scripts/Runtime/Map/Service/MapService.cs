@@ -69,8 +69,6 @@ namespace Game.Map
                         continue;
                     }
 
-                    nearbyStation.MarkAsChecked();
-
                     var isStart = nearbyStation.StationId.Id == startStationId;
 
                     var nearbyNode = new PathNode
